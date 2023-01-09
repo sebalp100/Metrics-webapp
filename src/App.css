@@ -35,6 +35,13 @@ body {
   align-items: center;
 }
 
+.list h3,
+.list h2 {
+  display: flex;
+  justify-content: flex-end;
+  color: white;
+}
+
 .background {
   display: flex;
   justify-content: space-evenly;
@@ -55,6 +62,13 @@ img {
   align-self: center;
 }
 
-.pName {
-  align-self: end;
+.planetData {
+  display: flex;
+  flex-direction: column;
+}
+
+@media only screen and (min-width: 1024px) {
+  .planet {
+    padding: 20px 100px;
+  }
 }

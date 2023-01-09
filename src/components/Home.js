@@ -1,5 +1,4 @@
 import React from 'react';
-import { nanoid } from '@reduxjs/toolkit';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { showPlanet } from '../redux/home/homeSlice';
@@ -15,9 +14,6 @@ import uranus from '../assets/uranus.png';
 
 const Home = () => {
   const planets = useSelector((state) => state.planets.planets);
-  const moon = planets.map((planet) => planet.moons);
-  const amount = moon.map((count) => count);
-  const moons = amount.map((item) => (item === null ? [] : item));
 
   const dispatch = useDispatch();
 
@@ -51,32 +47,63 @@ const Home = () => {
                           {planet.id === 'uranus' ? (
                             <div>
                               <img className="backImage" alt="planet" src={uranus} />
-                              <p>
-                                {planet.name}
-                                {planet.moons.length}
-                                Moons
-                              </p>
+                              <h2>{planet.name}</h2>
+                              <h3>{planet.moons !== null ? planet.moons.length : 0}</h3>
                             </div>
                           ) : null}
-                          {planet.id === 'terre' ? <img className="backImage" alt="planet" src={earth} /> : null}
-                          {planet.id === 'venus' ? <img className="backImage" alt="planet" src={venus} /> : null}
-                          {planet.id === 'mars' ? <img className="backImage" alt="planet" src={mars} /> : null}
-                          {planet.id === 'jupiter' ? <img className="backImage" alt="planet" src={jupiter} /> : null}
-                          {planet.id === 'neptune' ? <img className="backImage" alt="planet" src={neptune} /> : null}
-                          {planet.id === 'saturne' ? <img className="backImage" alt="planet" src={saturn} /> : null}
-                          {planet.id === 'mercure' ? <img className="backImage" alt="planet" src={mercury} /> : null}
+                          {planet.id === 'terre' ? (
+                            <div>
+                              <img className="backImage" alt="planet" src={earth} />
+                              <h2>{planet.name}</h2>
+                              <h3>{planet.moons !== null ? planet.moons.length : 0}</h3>
+                            </div>
+                          ) : null}
+                          {planet.id === 'venus' ? (
+                            <div>
+                              <img className="backImage" alt="planet" src={venus} />
+                              <h2>{planet.name}</h2>
+                              <h3>{planet.moons !== null ? planet.moons.length : 0}</h3>
+                            </div>
+                          ) : null}
+                          {planet.id === 'mars' ? (
+                            <div>
+                              <img className="backImage" alt="planet" src={mars} />
+                              <h2>{planet.name}</h2>
+                              <h3>{planet.moons !== null ? planet.moons.length : 0}</h3>
+                            </div>
+                          ) : null}
+                          {planet.id === 'jupiter' ? (
+                            <div>
+                              <img className="backImage" alt="planet" src={jupiter} />
+                              <h2>{planet.name}</h2>
+                              <h3>{planet.moons !== null ? planet.moons.length : 0}</h3>
+                            </div>
+                          ) : null}
+                          {planet.id === 'neptune' ? (
+                            <div>
+                              <img className="backImage" alt="planet" src={neptune} />
+                              <h2>{planet.name}</h2>
+                              <h3>{planet.moons !== null ? planet.moons.length : 0}</h3>
+                            </div>
+                          ) : null}
+                          {planet.id === 'saturne' ? (
+                            <div>
+                              <img className="backImage" alt="planet" src={saturn} />
+                              <h2>{planet.name}</h2>
+                              <h3>{planet.moons !== null ? planet.moons.length : 0}</h3>
+                            </div>
+                          ) : null}
+                          {planet.id === 'mercure' ? (
+                            <div>
+                              <img className="backImage" alt="planet" src={mercury} />
+                              <h2>{planet.name}</h2>
+                              <h3>{planet.moons !== null ? planet.moons.length : 0}</h3>
+                            </div>
+                          ) : null}
                         </button>
                       </NavLink>
                     ))
                   }
-                </ul>
-                <ul className="list">
-                  {moons.map((moon) => (
-                    <li className="moonNumber" key={nanoid()}>
-                      Moons:&nbsp;
-                      {moon.length}
-                    </li>
-                  ))}
                 </ul>
               </div>
             </>
