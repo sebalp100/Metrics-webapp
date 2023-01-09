@@ -1,38 +1,60 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+body {
+  background-color: rgb(84, 130, 214);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.planetList {
+  display: flex;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.backImage {
+  width: 30%;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.stats {
+  background-color: rgb(51, 83, 145);
+  margin: 20px 0;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  list-style: none;
+  align-items: center;
+}
+
+.background {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.planet {
+  background-color: transparent;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  align-self: center;
+}
+
+.pName {
+  align-self: end;
 }

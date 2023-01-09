@@ -1,25 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { fetchPlanets } from './redux/home/homeSlice';
+import Header from './components/Header';
+import Home from './components/Home';
+import Details from './components/Details';
 
-function App() {
+const App = () => {
+  const refresh = useSelector((state) => state.planets);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchPlanets());
+  }, [dispatch, refresh.refresh]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Details" element={<Details />} />
+        </Routes>
+      </>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
