@@ -9,6 +9,34 @@ body {
   color: white;
 }
 
+.header,
+.header2 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 40px;
+  background-color: rgb(51, 83, 145);
+  height: 40px;
+}
+
+.header2 {
+  justify-content: space-between;
+}
+
+.header h3,
+.header2 h3 {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.header2 h3 {
+  margin-left: -12%;
+}
+
+input {
+  width: 140px;
+}
+
 .planetList {
   display: flex;
 }
@@ -25,7 +53,8 @@ body {
 
 .stats {
   background-color: rgb(51, 83, 145);
-  margin: 20px 0;
+  margin-top: 20px;
+  padding-left: 2%;
 }
 
 .list {
@@ -52,6 +81,11 @@ body {
   padding: 20px;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+}
+
+.planet:hover {
+  background-color: rgb(51, 83, 145);
 }
 
 a {
@@ -67,8 +101,36 @@ img {
   flex-direction: column;
 }
 
+.backButton {
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  font-size: 24px;
+  margin-left: 30px;
+  border: none;
+}
+
+.moonContainer {
+  width: 100%;
+  border: 1px solid black;
+  display: flex;
+  height: 80px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.moonContainer:nth-child(even) {
+  background-color: rgb(51, 83, 145);
+}
+
 @media only screen and (min-width: 1024px) {
   .planet {
     padding: 20px 100px;
+  }
+
+  .moonContainer {
+    padding: 10px 100px;
   }
 }

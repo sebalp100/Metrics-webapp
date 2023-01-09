@@ -25,6 +25,11 @@ const Home = () => {
         <div>
           {planets && (
             <>
+              <div className="header">
+                <div />
+                <h3>Number of Moons</h3>
+                <input />
+              </div>
               <div className="background">
                 <img className="backImage" alt="icon" src={logo} />
                 <div className="title">
