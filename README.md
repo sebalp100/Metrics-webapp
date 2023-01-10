@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/78832703/203859927-696905b8-edee-4cc6-8642-0759f99b9ffd.png"
+<img src="https://api.le-systeme-solaire.net/assets/images/api.png"
 alt="logo" width="140"  height="auto" />
 <br/>
 
@@ -35,7 +35,7 @@ alt="logo" width="140"  height="auto" />
 
 # 📖 Moons of the Solar system <a name="about-project"></a>
 
-> In this project, we are setting up website that allows users to search for all the moons in the solar system, using real data from the The Solar System OpenData API.
+> In this project, we are setting up website that allows users to search for all the moons in the solar system, using real data from The Solar System OpenData API.
 
 ## 🛠 Built With <a name="built-with"></a>
 
