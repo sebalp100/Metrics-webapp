@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { showPlanet } from '../redux/home/homeSlice';
@@ -16,11 +16,20 @@ const Home = () => {
   const planets = useSelector((state) => state.planets.planets);
 
   const dispatch = useDispatch();
+  const [searchInput, setSearchInput] = useState('');
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    setSearchInput(e.target.value);
+  };
+
+  const filter = planets.filter((planet) => planet.name.toLowerCase()
+    .match(searchInput.toLowerCase()));
 
   return (
     <div>
       {planets.length === 0 ? (
-        <p>Loading...</p>
+        <p className="loader-container" />
       ) : (
         <div>
           {planets && (
@@ -28,8 +37,13 @@ const Home = () => {
               <div className="header">
                 <div />
                 <h3>Number of Moons</h3>
-                <input />
+                <input
+                  onChange={handleChange}
+                  value={searchInput}
+                  placeholder="Search Planet"
+                />
               </div>
+
               <div className="background">
                 <img className="backImage" alt="icon" src={logo} />
                 <div className="title">
@@ -41,7 +55,7 @@ const Home = () => {
               <div className="planetList">
                 <ul className="list">
                   {
-                    planets.map((planet) => (
+                    filter.map((planet) => (
                       <NavLink
                         key={planet.id}
                         to="/Details"
