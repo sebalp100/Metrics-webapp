@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { showPlanet } from '../redux/home/homeSlice';
@@ -11,20 +11,31 @@ import saturn from '../assets/saturn.png';
 import neptune from '../assets/neptune.png';
 import jupiter from '../assets/jupiter.png';
 import uranus from '../assets/uranus.png';
+import Filter from './Filter';
 
 const Home = () => {
   const planets = useSelector((state) => state.planets.planets);
-
   const dispatch = useDispatch();
+
   const [searchInput, setSearchInput] = useState('');
+
+  const [filteredPlanets, setFilteredPlanets] = useState(planets);
+
+  const handleFilter = (searchInput) => {
+    const filteredPlanets = planets.filter((planet) => planet.name.toLowerCase()
+      .match(searchInput.toLowerCase()));
+    setFilteredPlanets(filteredPlanets);
+  };
 
   const handleChange = (e) => {
     e.preventDefault();
     setSearchInput(e.target.value);
+    handleFilter(searchInput);
   };
 
-  const filter = planets.filter((planet) => planet.name.toLowerCase()
-    .match(searchInput.toLowerCase()));
+  useEffect(() => {
+    setFilteredPlanets(planets);
+  }, [planets]);
 
   return (
     <div>
@@ -37,10 +48,10 @@ const Home = () => {
               <div className="header">
                 <div />
                 <h3>Number of Moons</h3>
-                <input
-                  onChange={handleChange}
-                  value={searchInput}
-                  placeholder="Search Planet"
+                <Filter
+                  searchInput={searchInput}
+                  handleChange={handleChange}
+                  handleFilter={handleFilter}
                 />
               </div>
 
@@ -55,7 +66,7 @@ const Home = () => {
               <div className="planetList">
                 <ul className="list">
                   {
-                    filter.map((planet) => (
+                    filteredPlanets.map((planet) => (
                       <NavLink
                         key={planet.id}
                         to="/Details"
