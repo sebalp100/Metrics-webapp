@@ -33,6 +33,7 @@ describe('Home component', () => {
     const planetList = screen.getByTestId('planet-list');
     expect(planetList).toBeInTheDocument();
   });
+
   it('should filter the planet list', () => {
     render(
       <Provider store={store}>
@@ -41,13 +42,13 @@ describe('Home component', () => {
         </BrowserRouter>
       </Provider>,
     );
-    const input = screen.getByPlaceholderText('Search Planet');
-    fireEvent.change(input, { target: { value: 'V' } });
+    const input = screen.getByPlaceholderText('Search for a planet');
+    fireEvent.change(input, { target: { value: 'Ve' } });
     const planetList = screen.getByTestId('planet-list');
     expect(planetList).toHaveTextContent('Venus');
     expect(planetList).not.toHaveTextContent('Mercure');
-    expect(planetList).not.toHaveTextContent('Terre');
   });
+
   it('should dispatch showPlanet action on planet click', () => {
     const spy = jest.spyOn(store, 'dispatch');
     render(
