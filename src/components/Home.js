@@ -31,7 +31,7 @@ const Home = () => {
       {planets.length === 0 ? (
         <p className="loader-container" />
       ) : (
-        <div>
+        <div data-testid="planet-list">
           {planets && (
             <>
               <div className="header">
